@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="{% static 'css/productos_list.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Productos</h1>
+        <a href="{% url 'agregar_producto' %}" class="ver-carrito">Agregar Producto</a>
+        <div class="productos-grid">
+            {% for producto in productos %}
+                <div class="producto-card">
+                    <h2>{{ producto.nombre }}</h2>
+                    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                    <p><strong>Precio:</strong> {{ producto.precio }}$</p>
+                    <p><strong>Categoría:</strong> {{ producto.categoria.nombre }}</p>
+                    <p><strong>Stock:</strong> {{ producto.stock.cantidad }}</p>
+                    <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-secondary">Editar</a>
+                    <a href="{% url 'eliminar_producto' producto.pk %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+
+
+

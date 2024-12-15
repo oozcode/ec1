@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+</head>
+<div class="container">
+    <h1>Carrito de Compras</h1>
+    {% if not productos_en_carrito %}
+        <p>El carrito está vacío.</p>
+    {% else %}
+        <ul class="carrito-lista">
+            {% for item in productos_en_carrito %}
+                <li class="carrito-item">
+                    <span>{{ item.producto.nombre }} x {{ item.cantidad }} - {{ item.precio }}$ = {{ item.total }}$</span>
+                    <a href="{% url 'eliminar_del_carrito' item.producto.id %}" class="btn-danger">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="carrito-total"><strong>Total: {{ total_carrito }}$</strong></p>
+        <div class="carrito-acciones">
+            <a href="{% url 'vaciar_carrito' %}" class="btn-danger">Vaciar Carrito</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'pagar' %}" class="btn-primary">Comprar</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn-primary">Iniciar sesión para comprar</a>
+            {% endif %}
+        </div>
+    {% endif %}
+    <a href="{% url 'productos' %}" class="btn btn-secondary">Seguir comprando</a>
+</div>
+{% endblock %}

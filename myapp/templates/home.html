@@ -1,0 +1,29 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{% static 'img/LogoGG.png' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">  <title>Inicio de Sesión</title>
+</head>
+<body background="{% static 'img/Arcade.png' %}">
+  <div class="container">  
+    
+    <a href="{% url 'index' %}">
+      <img src="{% static 'img/LogoGG.png' %}" alt="Logo de la empresa" id="logo" width="42">
+    </a>
+
+  <form method="post" class="login-form">  <h1>Sesión Cerrada</h1>
+
+    <a href="{% url 'index' %}" class="cta-button">Página Principal</a>
+    <br>
+    <br>
+    <a href="{% url 'login' %}" class="cta-button">Inicia Sesión</a>
+  </form>
+
+</div>
+</body>
+</html>

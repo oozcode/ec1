@@ -1,0 +1,142 @@
+/* Contenedor principal */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.container h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Lista del carrito */
+.carrito-lista {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-item span {
+    color: #343a40;
+    font-size: 1em;
+}
+
+.carrito-item .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.carrito-item .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Total del carrito */
+.carrito-total {
+    font-size: 1.2em;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+/* Acciones del carrito */
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.carrito-acciones .btn-danger,
+.carrito-acciones .btn-primary {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.carrito-acciones .btn-danger {
+    background-color: #dc3545;
+}
+
+.carrito-acciones .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.carrito-acciones .btn-primary {
+    background-color: #007bff;
+}
+
+.carrito-acciones .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn{
+    width: max-content;
+}
+
+/* Enlace para seguir comprando */
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Mensajes de alerta */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

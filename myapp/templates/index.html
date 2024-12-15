@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG!</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+{% if user.is_authenticated %}
+<p class="login-text ">¡Bienvenido a GG Store!</p>
+<a href="{% url 'productos' %}"  class="login-button login-overlay">Productos</a>
+{% else %}
+<p class="login-text ">Inicia sesión para una experiencia totalmente personalizada</p>
+<a href="{% url 'login' %}"  class="login-button login-overlay">Iniciar Sesión</a>
+{% endif %}
+    <section class="hero">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'img/Arcade.png' %}"  class="d-block w-100" alt="Image 1">
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/FotoFiguras.jpg' %}"  class="d-block w-100" alt="Image 2">
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+    <section class="services">
+        <div class="service-container">
+            <div class="service">
+                <img src= "{% static 'img/Avion.jpg' %}" alt="Servicio 1" class="service-image">
+                <h3 class="service-title">Directo de Japon</h3>
+                <p class="service-description">Calidad y originalidad en todos nuestros productos</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'img/Transporte.png' %}"  alt="Servicio 2" class="service-image">
+                <h3 class="service-title">Entrega directo a su hogar</h3>
+                <p class="service-description">Profesionales Certificados</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'img/Billetera.png' %}"  alt="Servicio 3" class="service-image">
+                <h3 class="service-title">Los mejores precios</h3>
+                <p class="service-description">Productos de Calidad</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'img/ServicioCliente.png' %}"  alt="Servicio 4" class="service-image">
+                <h3 class="service-title">Soporte 24/7</h3>
+                <p class="service-description">Siempre buscando una solucion</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
+
+{% endblock %}

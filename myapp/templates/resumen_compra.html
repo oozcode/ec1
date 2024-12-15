@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+</head>
+<div class="container">
+    <h1>Resumen de Compra</h1>
+    {% if compra %}
+        <ul class="carrito-lista">
+            {% for item in compra.productos_con_totales %}
+                <li>
+                    <span>{{ item.producto.nombre }} x {{ item.cantidad }} - {{ item.precio }}$ = {{ item.total }}$</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="carrito-total"><strong>Total: {{ compra.total }}$</strong></p>
+    {% else %}
+        <p>No hay información de compra disponible.</p>
+    {% endif %}
+    <a href="{% url 'productos' %}" class="btn-primary">Volver a la tienda</a>
+</div>
+{% endblock %}
